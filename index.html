@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>영아부 출석체크</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="app-header">
+      <h1>교회 영아부 출석체크</h1>
+      <p>인원관리와 주일 출석체크를 한 번에 관리하세요.</p>
+    </header>
+
+    <main class="app-grid">
+      <section class="card">
+        <h2>인원관리</h2>
+        <form id="member-form" class="member-form">
+          <label>
+            아기 이름
+            <input id="name" type="text" required placeholder="예: 김하준" />
+          </label>
+          <label>
+            보호자 이름
+            <input id="guardian" type="text" required placeholder="예: 김민수" />
+          </label>
+          <label>
+            생년월일
+            <input id="birth" type="date" required />
+          </label>
+          <button type="submit">인원 추가</button>
+        </form>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>아기 이름</th>
+                <th>보호자</th>
+                <th>생년월일</th>
+                <th>삭제</th>
+              </tr>
+            </thead>
+            <tbody id="member-table-body"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="card">
+        <div class="attendance-head">
+          <h2>출석체크</h2>
+          <label>
+            예배 날짜
+            <input id="attendance-date" type="date" />
+          </label>
+        </div>
+
+        <div id="attendance-list" class="attendance-list"></div>
+
+        <div class="summary">
+          <p>총 인원: <strong id="total-count">0</strong>명</p>
+          <p>출석 인원: <strong id="present-count">0</strong>명</p>
+          <p>결석 인원: <strong id="absent-count">0</strong>명</p>
+        </div>
+      </section>
+    </main>
+
+    <template id="empty-state">
+      <p class="empty">먼저 인원관리에서 영아 정보를 추가해 주세요.</p>
+    </template>
+
+    <script src="app.js"></script>
+  </body>
+</html>
